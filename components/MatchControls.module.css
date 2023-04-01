@@ -26,6 +26,10 @@
   background-color: var(--brand-green);
 }
 
-.wrapper button:last-child {
+.wrapper button:nth-child(3) {
   background-color: var(--brand-red);
+}
+
+.wrapper button:last-child {
+  background-color: var(--brand-blue);
 }

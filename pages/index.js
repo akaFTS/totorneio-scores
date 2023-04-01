@@ -7,6 +7,7 @@ import styles from "style/index.module.css";
 
 export default function Home() {
   const router = useRouter();
+  const [isHappyGame, setHappyGame] = useState(true);
   const [blueTeamData, setBlueTeamData] = useState(initialState);
   const [redTeamData, setRedTeamData] = useState(initialState);
   const matchId = !router.query.match ? "default" : router.query.match;
@@ -29,12 +30,18 @@ export default function Home() {
 
   return (
     <main className={styles.container}>
-      <MatchBox blueTeamData={blueTeamData} redTeamData={redTeamData} />
+      <MatchBox
+        blueTeamData={blueTeamData}
+        redTeamData={redTeamData}
+        isHappyGame={isHappyGame}
+      />
       <Controls
         blueTeamData={blueTeamData}
         redTeamData={redTeamData}
         setBlueTeamData={asyncSetBlueTeamData}
         setRedTeamData={asyncSetRedTeamData}
+        isHappyGame={isHappyGame}
+        setHappyGame={setHappyGame}
       />
     </main>
   );

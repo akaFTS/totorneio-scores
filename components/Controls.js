@@ -7,7 +7,12 @@ export default function Controls({
   setBlueTeamData,
   redTeamData,
   setRedTeamData,
+  isHappyGame,
+  setHappyGame,
 }) {
+  const handleToggleHappy = () => {
+    setHappyGame(!isHappyGame);
+  };
   const handleSwapTeams = () => {
     const tempTeamData = blueTeamData;
     setBlueTeamData(redTeamData);
@@ -56,6 +61,8 @@ export default function Controls({
         onSwapTeams={handleSwapTeams}
         onResetMatch={handleResetMatch}
         onNextSet={handleNextSet}
+        isHappyGame={isHappyGame}
+        onToggleHappy={handleToggleHappy}
       />
     </div>
   );
