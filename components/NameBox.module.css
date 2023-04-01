@@ -3,11 +3,18 @@
   align-items: center;
   justify-content: center;
   padding: var(--p1);
-  width: 400px;
   background-color: var(--box-color);
   color: white;
-  font-size: var(--f2);
+  font-size: var(--f3);
   font-weight: 400;
   font-family: var(--google-font);
   letter-spacing: 1.05;
+}
+
+@media (min-width: 40em) {
+  .names {
+    font-size: var(--f2);
+    padding: var(--p2) var(--p3);
+    white-space: nowrap;
+  }
 }

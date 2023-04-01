@@ -5,19 +5,27 @@ import ScoreBox from "./ScoreBox";
 export default function Scoreboard({ blueTeamData, redTeamData }) {
   return (
     <div className={styles.wrapper}>
-      <NameBox names={blueTeamData.names} color="blue" />
-      <ScoreBox
-        matchScore={blueTeamData.matchScore}
-        setScore={blueTeamData.setScore}
-        color="yellow"
-      />
-      <ScoreBox
-        matchScore={redTeamData.matchScore}
-        setScore={redTeamData.setScore}
-        color="green"
-        reverse
-      />
-      <NameBox names={redTeamData.names} color="red" />
+      <div className={styles.side}>
+        <div className={styles.name}>
+          <NameBox names={blueTeamData.names} color="blue" />
+        </div>
+        <ScoreBox
+          matchScore={blueTeamData.matchScore}
+          setScore={blueTeamData.setScore}
+          color="yellow"
+        />
+      </div>
+      <div className={styles.side}>
+        <ScoreBox
+          matchScore={redTeamData.matchScore}
+          setScore={redTeamData.setScore}
+          color="green"
+          reverse
+        />
+        <div className={styles.name}>
+          <NameBox names={redTeamData.names} color="red" />
+        </div>
+      </div>
     </div>
   );
 }

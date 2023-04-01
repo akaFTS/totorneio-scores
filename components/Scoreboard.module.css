@@ -1,4 +1,38 @@
 .wrapper {
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  row-gap: var(--p1);
+}
+
+.side {
+  display: flex;
   column-gap: var(--p2);
+  width: 100%;
+}
+
+.side .name {
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+}
+
+.side .name > * {
+  width: 100%;
+}
+
+.side:last-child {
+  flex-direction: row-reverse;
+}
+
+@media (min-width: 60em) {
+  .wrapper {
+    flex-direction: row;
+    max-width: 1200px;
+  }
+
+  .side:last-child {
+    flex-direction: row;
+  }
 }

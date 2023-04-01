@@ -2,10 +2,6 @@
   display: flex;
 }
 
-.wrapper.reverse {
-  flex-direction: row-reverse;
-}
-
 .score {
   width: 65px;
   padding: var(--p1) var(--p2);
@@ -34,7 +30,12 @@
   border-color: transparent transparent transparent var(--box-color);
 }
 
-.reverse .triangle {
-  border-width: var(--p4) var(--p3) var(--p4) 0;
-  border-color: transparent var(--box-color) transparent transparent;
+@media (min-width: 60em) {
+  .wrapper.reverse {
+    flex-direction: row-reverse;
+  }
+  .wrapper.reverse .triangle {
+    border-width: var(--p4) var(--p3) var(--p4) 0;
+    border-color: transparent var(--box-color) transparent transparent;
+  }
 }
