@@ -1,0 +1,13 @@
+.names {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--p1);
+  width: 400px;
+  background-color: var(--box-color);
+  color: white;
+  font-size: var(--f2);
+  font-weight: 400;
+  font-family: var(--google-font);
+  letter-spacing: 1.05;
+}

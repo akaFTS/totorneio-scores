@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: var(--p4);
+  background-color: var(--box-color);
+  row-gap: var(--p3);
+}
+
+.container span {
+  font-family: var(--google-font);
+  font-size: var(--f3);
+  color: white;
+  text-transform: capitalize;
+}
+
+.container input {
+  background-color: var(--box-color);
+  background-image: linear-gradient(rgb(0 0 0/30%) 0 0);
+  border: var(--bw1) solid white;
+  border-radius: var(--br3);
+  font-size: var(--f4);
+  padding: var(--p2);
+  font-family: var(--google-font);
+  font-size: var(--f4);
+  color: rgba(255, 255, 255, 0.8);
+  outline: 0;
+}
+
+.container input:focus {
+  border-style: dashed;
+}
+
+.container button {
+  border: var(--bw1) solid white;
+  border-radius: var(--br3);
+  font-size: var(--f4);
+  padding: var(--p2);
+  font-family: var(--google-font);
+  font-weight: 600;
+  background-color: white;
+  color: var(--box-color);
+}
+
+.container button:hover {
+  cursor: pointer;
+  background-image: linear-gradient(rgb(0 0 0/10%) 0 0);
+}

@@ -1,0 +1,31 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  row-gap: var(--p2);
+}
+
+.wrapper button {
+  border: var(--bw1) solid white;
+  border-radius: var(--br3);
+  font-size: var(--f4);
+  padding: var(--p3);
+  font-family: var(--google-font);
+  font-weight: 600;
+  background-color: var(--brand-yellow);
+  color: white;
+}
+
+.wrapper button:hover {
+  cursor: pointer;
+  background-image: linear-gradient(rgb(0 0 0/10%) 0 0);
+}
+
+.wrapper button:first-child {
+  background-color: var(--brand-green);
+}
+
+.wrapper button:last-child {
+  background-color: var(--brand-red);
+}

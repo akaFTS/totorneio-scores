@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "easybase-react": "^2.2.13",
+    "firebase": "^9.19.1",
+    "next": "latest",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}

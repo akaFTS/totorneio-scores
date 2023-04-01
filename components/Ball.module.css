@@ -1,0 +1,25 @@
+.ball {
+  background-color: white;
+  padding: calc(var(--p2) + var(--p1));
+  border-radius: var(--br-circle);
+  position: relative;
+}
+
+.ball.orange {
+  background-color: var(--orange);
+}
+
+.ball.gold {
+  background-color: var(--gold);
+}
+
+.ball.turnaround:after {
+  content: "X";
+  position: absolute;
+  top: calc(-1 * var(--p2));
+  left: 0;
+  font-family: var(--google-font);
+  font-weight: 900;
+  font-size: var(--f2);
+  color: var(--brand-red);
+}

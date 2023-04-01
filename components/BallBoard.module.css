@@ -1,0 +1,9 @@
+.ballContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  column-gap: calc(var(--p2) + var(--p1));
+  background-color: var(--grey);
+  padding: var(--p3) var(--p4);
+  border-radius: var(--br-pill);
+}
