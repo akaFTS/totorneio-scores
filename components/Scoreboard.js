@@ -7,23 +7,23 @@ export default function Scoreboard({ blueTeamData, redTeamData }) {
     <div className={styles.wrapper}>
       <div className={styles.side}>
         <div className={styles.name}>
-          <NameBox names={blueTeamData.names} color="blue" />
+          <NameBox names={redTeamData.names} color="red" />
         </div>
-        <ScoreBox
-          matchScore={blueTeamData.matchScore}
-          setScore={blueTeamData.setScore}
-          color="yellow"
-        />
-      </div>
-      <div className={styles.side}>
         <ScoreBox
           matchScore={redTeamData.matchScore}
           setScore={redTeamData.setScore}
           color="green"
+        />
+      </div>
+      <div className={styles.side}>
+        <ScoreBox
+          matchScore={blueTeamData.matchScore}
+          setScore={blueTeamData.setScore}
+          color="yellow"
           reverse
         />
         <div className={styles.name}>
-          <NameBox names={redTeamData.names} color="red" />
+          <NameBox names={blueTeamData.names} color="blue" />
         </div>
       </div>
     </div>
