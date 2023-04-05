@@ -45,8 +45,8 @@ export const streamScoreboard = (scoreboardId, onTeamsUpdate) => {
       if (!doc.exists()) {
         createScoreboard(scoreboardId);
       } else {
-        const data = doc.data().teams;
-        onTeamsUpdate(data);
+        const data = doc.data();
+        onTeamsUpdate(data.teams, data.isHappy);
       }
     },
     (e) => {
@@ -61,4 +61,9 @@ export const updateTeam = (scoreBoardId, team, teamData) => {
   return updateDoc(matchDocRef, {
     [fieldName]: teamData,
   });
+};
+
+export const updatePlayStyle = (scoreBoardId, isHappy) => {
+  const matchDocRef = doc(db, "matches", scoreBoardId);
+  return updateDoc(matchDocRef, { isHappy });
 };

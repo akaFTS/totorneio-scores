@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { streamScoreboard, updateTeam, initialState } from "services/firestore";
+import {
+  streamScoreboard,
+  updateTeam,
+  updatePlayStyle,
+  initialState,
+} from "services/firestore";
 import MatchBox from "components/MatchBox";
 import Controls from "components/Controls";
 import styles from "style/index.module.css";
@@ -13,9 +18,10 @@ export default function Home() {
   const matchId = !router.query.match ? "default" : router.query.match;
 
   useEffect(() => {
-    const unsubscribe = streamScoreboard(matchId, (teams) => {
+    const unsubscribe = streamScoreboard(matchId, (teams, isHappy) => {
       setBlueTeamData(teams.blue);
       setRedTeamData(teams.red);
+      setHappyGame(isHappy);
     });
     return unsubscribe;
   }, [setBlueTeamData, setRedTeamData, matchId]);
@@ -26,6 +32,10 @@ export default function Home() {
 
   const asyncSetRedTeamData = (data) => {
     updateTeam(matchId, "red", data);
+  };
+
+  const asyncSetHappyGame = (isHappy) => {
+    updatePlayStyle(matchId, isHappy);
   };
 
   return (
@@ -41,7 +51,7 @@ export default function Home() {
         setBlueTeamData={asyncSetBlueTeamData}
         setRedTeamData={asyncSetRedTeamData}
         isHappyGame={isHappyGame}
-        setHappyGame={setHappyGame}
+        setHappyGame={asyncSetHappyGame}
       />
     </main>
   );
