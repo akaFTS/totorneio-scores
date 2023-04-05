@@ -23,39 +23,37 @@ export default function Controls({
     setRedTeamData({ names: "", setScore: 0, matchScore: 0 });
   };
   const handleNextSet = () => {
-    if (redTeamData.setScore > blueTeamData.score) {
-      setRedTeamData({
-        names: redTeamData.names,
-        setScore: 0,
-        matchScore: redTeamData.matchScore + 1,
-      });
-      setBlueTeamData({
-        ...blueTeamData,
-        setScore: 0,
-      });
-    } else {
-      setBlueTeamData({
-        names: blueTeamData.names,
-        setScore: 0,
-        matchScore: blueTeamData.matchScore + 1,
-      });
-      setRedTeamData({
-        ...redTeamData,
-        setScore: 0,
-      });
-    }
+    const redTeamWon = redTeamData.setScore > blueTeamData.setScore;
+    const updatedRedTeamData = {
+      ...redTeamData,
+      setScore: 0,
+      matchScore: redTeamWon
+        ? redTeamData.matchScore + 1
+        : redTeamData.matchScore,
+    };
+    const updatedBlueTeamData = {
+      ...blueTeamData,
+      setScore: 0,
+      matchScore: redTeamWon
+        ? blueTeamData.matchScore
+        : blueTeamData.matchScore + 1,
+    };
+
+    // Swap sides for next set
+    setBlueTeamData(updatedRedTeamData);
+    setRedTeamData(updatedBlueTeamData);
   };
   return (
     <div className={styles.superwrapper}>
       <TeamConfig
-        color="blue"
-        teamData={blueTeamData}
-        setTeamData={setBlueTeamData}
-      />
-      <TeamConfig
         color="red"
         teamData={redTeamData}
         setTeamData={setRedTeamData}
+      />
+      <TeamConfig
+        color="blue"
+        teamData={blueTeamData}
+        setTeamData={setBlueTeamData}
       />
       <MatchControls
         onSwapTeams={handleSwapTeams}
